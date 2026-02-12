@@ -1,4 +1,4 @@
 ﻿using Exercicio2;
 
-var pessoa = new Pessoa { Nome = "João", Idade = 30 };
+var pessoa = new Pessoa { Nome = "Laura", Idade = 17 };
 pessoa.ExibirDados();

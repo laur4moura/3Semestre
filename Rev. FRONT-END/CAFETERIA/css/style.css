@@ -1,25 +1,49 @@
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: "Courier New", Courier, monospace;
+body
+{
+background-color: #F9ECE3;
+width: 100%;
+
+display: flex;
+justify-content: center;
 }
 
+header
+{
+display: flex;
+width: 80%;
 
-/*  --------------- Header --------------- */
-header{
-    background-color: #F7EEE5;
-    height: 100px; /* Define a altura do header */
-    width: 100%; /* Define a largura do header para ocupar toda a largura da página */
+background-color: #FAEEE8;
+justify-content: space-around;
+align-items: center;
+
+font-family: 'Courier New', Courier, monospace;
 }
 
-.cabecalho{
-    display: flex; /* Define o layout como flexbox */
-    justify-content: space-around; /* Distribui os itens com espaço ao redor */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    height: 100%; /* Define a altura do container para ocupar toda a altura do header */
+.layout-grid
+{
+margin: 5px;
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+
+gap: 20px;
+}
+.layout-grid h1
+{
+    font-size: 24px;
 }
 
+.produtos
+{
+    background-color: aqua;
+    
+}

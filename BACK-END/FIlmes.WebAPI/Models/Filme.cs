@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace FILmes.WebAPI.Models;
+namespace FIlmes.WebAPI.Models;
 
 [Table("Filme")]
 public partial class Filme

@@ -1,4 +1,4 @@
-﻿using FILmes.WebAPI.Models;
+﻿using FIlmes.WebAPI.Models;
 
 namespace FILmes.WebAPI.Interface;
 

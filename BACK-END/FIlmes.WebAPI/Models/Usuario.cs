@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace FILmes.WebAPI.Models;
+namespace FIlmes.WebAPI.Models;
 
 [Table("Usuario")]
 public partial class Usuario
@@ -21,4 +21,8 @@ public partial class Usuario
     [StringLength(60)]
     [Unicode(false)]
     public string Senha { get; set; } = null!;
+
+    [StringLength(256)]
+    [Unicode(false)]
+    public string? Email { get; set; }
 }

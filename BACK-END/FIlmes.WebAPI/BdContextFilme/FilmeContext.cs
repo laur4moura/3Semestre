@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using FILmes.WebAPI.Models;
+using FIlmes.WebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FILmes.WebAPI.BdContextFilme;
+namespace FIlmes.WebAPI.BdContextFilme;
 
 public partial class FilmeContext : DbContext
 {

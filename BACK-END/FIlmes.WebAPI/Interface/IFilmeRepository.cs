@@ -1,4 +1,5 @@
-﻿using FILmes.WebAPI.Models;
+﻿using FIlmes.WebAPI.Controllers;
+using FIlmes.WebAPI.Models;
 
 namespace FILmes.WebAPI.Interface;
 
@@ -11,4 +12,5 @@ public interface IFilmeRepository
     void Deletar(Guid id);
 
     Filme BuscarPorId(Guid id);
+    void Cadastrar(FilmeController novoFilme);
 }

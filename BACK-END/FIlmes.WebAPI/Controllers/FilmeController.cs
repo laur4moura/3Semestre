@@ -35,7 +35,7 @@ public class FilmeController : ControllerBase
     }
 
 
-  
+    //[Authorize]
 
     [HttpGet]
 

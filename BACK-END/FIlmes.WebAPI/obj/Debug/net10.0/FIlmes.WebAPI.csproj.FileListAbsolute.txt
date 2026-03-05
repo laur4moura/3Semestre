@@ -475,3 +475,4 @@ C:\Users\54000450816\Desktop\3Semestre\BACK-END\FIlmes.WebAPI\bin\Debug\net10.0\
 C:\Users\54000450816\Desktop\3Semestre\BACK-END\FIlmes.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\54000450816\Desktop\3Semestre\BACK-END\FIlmes.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\54000450816\Desktop\3Semestre\BACK-END\FIlmes.WebAPI\obj\Debug\net10.0\FIlmes.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\54000450816\Desktop\3Semestre\BACK-END\FIlmes.WebAPI\bin\Debug\net10.0\FIlmes.WebAPI.staticwebassets.runtime.json

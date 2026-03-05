@@ -1,8 +1,9 @@
 ﻿using FIlmes.WebAPI.Models;
 using FILmes.WebAPI.Interface;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 
 
@@ -34,7 +35,7 @@ public class FilmeController : ControllerBase
     }
 
 
-
+  
 
     [HttpGet]
 
@@ -55,9 +56,41 @@ public class FilmeController : ControllerBase
 
 
     [HttpPost]
-
-    public IActionResult Post(Filme novoFilme)
+     
+    public async Task<IActionResult> Post([FromForm] FilmeDTO filme)
     {
+        if (String.IsNullOrWhiteSpace(filme.Nome))
+            return BadRequest("É Obrigatório que o filmetenha o Nome e Gênero");
+        Filme novoFilme = new Filme();
+        
+        if(filme.Imagem != null && filme.Imagem.Length != 0)
+        {
+            var extensao = Path.GetExtension(filme.Imagem.FileName);
+            var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+
+            var pastaRelativa = "wwwroot/imagens";
+            var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+            //Garantir que a pasta exista;
+            
+            if (!Directory.Exists(caminhoPasta))
+                Directory.CreateDirectory(caminhoPasta);
+
+            var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+
+            using(var stream = new FileStream(caminhoCompleto, FileMode.Create))
+            {
+                await filme.Imagem.CopyToAsync(stream);
+            
+            }
+            novoFilme.Imagem = nomeArquivo;
+
+        }
+
+        novoFilme.IdGenero = filme.IdGenero.ToString();
+        novoFilme.Titulo = filme.Nome;
+
+
         try
         {
 
@@ -73,11 +106,51 @@ public class FilmeController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(Guid id, Filme filmeAtualizado)
+    public async Task<IActionResult> Put(Guid id, FilmeDTO filmeAtualizado)
     {
+        var filmeBuscado = _filmeRepository.BuscarPorId(id);
+        if (filmeBuscado == null)
+            return NotFound("Filme não encontrado");
+
+        if(!String.IsNullOrWhiteSpace(filmeAtualizado.Nome))
+            filmeBuscado.Titulo = filmeAtualizado.Nome;
+
+        if (filmeAtualizado.IdGenero != null && filmeBuscado.IdGenero != filmeAtualizado.IdGenero.ToString()) 
+            filmeBuscado.IdGenero = filmeAtualizado.IdGenero.ToString();
+
+        if(filmeAtualizado.Imagem != null && filmeAtualizado.Imagem.Length != 0)
+        {
+            var pastaRelativa = "wwwroot/imagens";
+            var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+            //Deleta arquivo antigo
+            if(!String.IsNullOrEmpty(filmeBuscado.Imagem))
+            {
+                var caminhoAntigo = Path.Combine(caminhoPasta, filmeBuscado.Imagem);
+                if(System.IO.File.Exists(caminhoAntigo))
+                    System.IO.File.Delete(caminhoAntigo);
+
+            }
+
+            //Salva a nova imagem 
+            var extensao = Path.GetExtension(filmeAtualizado.Imagem.FileName);
+            var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+
+            if(!Directory.Exists(caminhoPasta))
+                Directory.CreateDirectory(caminhoPasta);
+
+            var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+
+            using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+            {
+                await filmeAtualizado.Imagem.CopyToAsync(stream);
+            }
+        }
+
         try
         {
-            _filmeRepository.AtualizarIdUrl(id, filmeAtualizado);
+            _filmeRepository.AtualizarIdUrl(id, filmeBuscado);
+
 
             return NoContent();
         }
@@ -109,6 +182,24 @@ public class FilmeController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) 
     {
+        var filmeBuscado = _filmeRepository.BuscarPorId(id);
+
+        if (filmeBuscado == null)
+            return NotFound("Filme não encontrado.");
+
+        var pastaRelativa = "wwwroot/imagens";
+        var caminhoPasta =Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+        //deleta 
+        if
+            (String.IsNullOrEmpty(filmeBuscado.Imagem))
+        {
+            var caminho = Path.Combine(caminhoPasta, filmeBuscado.Imagem);
+            if (System.IO.File.Exists(caminho))
+                System.IO.File.Delete(caminho);
+
+        }
+
         try
         {
             _filmeRepository.Deletar(id);

@@ -1,6 +1,7 @@
 ﻿using EventPlus_.WebAPI.BdContextEvent;
 using EventPlus_.WebAPI.Interfaces;
 using EventPlus_.WebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventPlus.WebAPI.Repositories;
 
@@ -22,7 +23,12 @@ public class ComentarioEventoRepository : IComentarioEventoRepository
     /// <returns>Status code 204 e lista de usuarios e eventos</returns>
     public ComentarioEvento BuscarPorIdUsuario(Guid IdUsuario, Guid IdEvento)
     {
-        return _context.ComentarioEventos.Find(IdUsuario, IdEvento)!;
+        return _context.ComentarioEventos
+            .Include(c => c.IdUsuarioNavigation)
+            .Include(c => c.IdEventoNavigation)
+            .FirstOrDefault(c => c.IdUsuario == IdUsuario && c.IdEvento == IdEvento)!
+            ;
+        
     }
 
 

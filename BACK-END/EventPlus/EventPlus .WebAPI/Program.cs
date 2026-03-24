@@ -1,4 +1,6 @@
 
+using Azure.AI.ContentSafety;
+using EventPlus.WebAPI.Repositories;
 using EventPlus_.WebAPI.BdContextEvent;
 using EventPlus_.WebAPI.Interfaces;
 using EventPlus_.WebAPI.Repositories;
@@ -8,6 +10,13 @@ using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var endpoint = "";
+var apiKey = "";
+
+
+var client = new ContentSafetyClient(new Uri (endpoint), new Azure.AzureKeyCredential(apiKey));
+
+builder.Services.AddSingleton(client);
 
 // 1. Configurar o Contexto do Banco de Dados
 builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -19,6 +28,7 @@ builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<IPresencaRepository, PresencaRepository>();  
+builder.Services.AddScoped<IComentarioEventoRepository, ComentarioEventoRepository>();
 
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();

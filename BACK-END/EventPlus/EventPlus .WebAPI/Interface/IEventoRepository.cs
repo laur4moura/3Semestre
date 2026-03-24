@@ -1,6 +1,6 @@
 ﻿using EventPlus_.WebAPI.Models;
 
-namespace EventPlus_.WebAPI.Interface;
+namespace EventPlus_.WebAPI.Interfaces;
 
 public interface IEventoRepository
 {
@@ -17,6 +17,5 @@ public interface IEventoRepository
     List<Evento> ProximoEventos();
 
     Evento BuscarPorId(Guid id);
-
-
+    object? ProximosEventos();
 }

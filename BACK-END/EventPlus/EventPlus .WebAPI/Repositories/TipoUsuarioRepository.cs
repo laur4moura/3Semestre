@@ -1,5 +1,5 @@
 ﻿using EventPlus_.WebAPI.BdContextEvent;
-using EventPlus_.WebAPI.Interface;
+using EventPlus_.WebAPI.Interfaces;
 using EventPlus_.WebAPI.Models;
 
 namespace EventPlus_.WebAPI.Repositories;
@@ -69,7 +69,7 @@ public class TipoUsuarioRepository : ITipoUsuarioRepository
     /// <returns>Objeto do tipo usuário com as infomrmações</returns>
     public TipoUsuario BuscarPorId(Guid id)
     {
-        return _context.TipoUsuarios.Find(id);
+        return _context.TipoUsuarios.Find(id)!;
     }
 
 }

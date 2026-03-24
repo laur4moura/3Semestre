@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventPlus .WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a9046c5880683ae1163761d218a0ad16715c5f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c16c92ee23c1131385071f42df2e945bb0b9034e")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventPlus .WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventPlus .WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

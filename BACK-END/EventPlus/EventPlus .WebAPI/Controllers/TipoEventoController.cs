@@ -1,5 +1,5 @@
 ﻿using EventPlus_.WebAPI.DTO;
-using EventPlus_.WebAPI.Interface;
+using EventPlus_.WebAPI.Interfaces;
 using EventPlus_.WebAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -94,11 +94,15 @@ public class TipoEventoController : ControllerBase
     /// <returns>Status code 204 e o tipo de evendo atualizado</returns>
    
     [HttpPut("{id}")]
-    public IActionResult Atualizar(Guid id, TipoEvento tipoEvento)
+    public IActionResult Atualizar(Guid id, TipoEventoDTO tipoEvento)
     {
         try
         {
-            _tipoEventoRepository.Atualizar(id, tipoEvento);
+            var tipoEventoAtualizado = new TipoEvento
+            {
+                Titulo = tipoEvento.Titulo!
+            };
+            _tipoEventoRepository.Atualizar(id, tipoEventoAtualizado);
             return StatusCode(204, tipoEvento);
 
         }

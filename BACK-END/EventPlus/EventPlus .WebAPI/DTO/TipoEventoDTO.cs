@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventPlus_.WebAPI.DTO;
-
-public class TipoEventoDTO
+namespace EventPlus_.WebAPI.DTO
 {
-    [Required(ErrorMessage = "O titulo do tipo de evento é obrigatório!")]
-    public string? Titulo { get; set; }
+    public class TipoEventoDTO
+    {
+        [Required(ErrorMessage = "O titulo do tipo de Usuário é obrigatório!")]
+        public string? Titulo { get; set; }
+
+    }
 }

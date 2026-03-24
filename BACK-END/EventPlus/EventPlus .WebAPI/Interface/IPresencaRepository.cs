@@ -1,6 +1,6 @@
 ﻿using EventPlus_.WebAPI.Models;
 
-namespace EventPlus_.WebAPI.Interface;
+namespace EventPlus_.WebAPI.Interfaces;
 
 public interface IPresencaRepository
 {
@@ -12,7 +12,7 @@ public interface IPresencaRepository
 
     Presenca BuscarPorId(Guid id);
 
-    void Atualizar(Guid id);
+    void Atualizar(Guid id, Presenca presencaAtualizado);
 
     List<Presenca> ListarMinhas(Guid IdUsuario);
 }

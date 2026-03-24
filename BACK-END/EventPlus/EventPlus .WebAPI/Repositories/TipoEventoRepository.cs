@@ -1,5 +1,5 @@
 ﻿using EventPlus_.WebAPI.BdContextEvent;
-using EventPlus_.WebAPI.Interface;
+using EventPlus_.WebAPI.Interfaces;
 using EventPlus_.WebAPI.Models;
 
 namespace EventPlus_.WebAPI.Repositories;

@@ -1,4 +1,5 @@
-﻿using FIlmes.WebAPI.Models;
+﻿using FIlmes.WebAPI.DTO;
+using FIlmes.WebAPI.Models;
 using FILmes.WebAPI.Interface;
 
 using Microsoft.AspNetCore.Http;
@@ -44,14 +45,17 @@ public class GeneroController : ControllerBase
     }
 
 
-
     [HttpPost]
-
-    public IActionResult Post(Genero novoGenero)
+        public IActionResult Post(GeneroDTO generoDto)
     {
         try
         {
+            Genero novoGenero = new Genero();
+
+            novoGenero.Nome = generoDto.Nome!;
+
             _generoRepository.Cadastrar(novoGenero);
+
             return StatusCode(201);
         }
         catch (Exception ex)
@@ -60,12 +64,17 @@ public class GeneroController : ControllerBase
         }
     }
 
-    [HttpPost("{id}")]
-    public IActionResult Put(Guid id, Genero generoAtualizado)
+    [HttpPut("{id}")]
+    public IActionResult Put(Guid id, GeneroDTO novoGenero)
     {
         try
         {
-            _generoRepository.AtualizarIdUrl(id, generoAtualizado);
+            var genero = new Genero
+            {
+                Nome = novoGenero.Nome!,
+                IdGenero = id.ToString()
+            };
+            _generoRepository.AtualizarIdUrl(id, genero);
             return NoContent();
         }
         catch (Exception ex)

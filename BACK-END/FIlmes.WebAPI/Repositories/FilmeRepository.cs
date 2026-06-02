@@ -3,6 +3,8 @@ using FIlmes.WebAPI.Controllers;
 using FIlmes.WebAPI.Models;
 using FILmes.WebAPI.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 namespace FIlmes.WebAPI.Repositories;
 
@@ -115,8 +117,9 @@ public class FilmeRepository : IFilmeRepository
     {
         try
         {
-            List<Filme> ListarFilme = _context.Filmes.ToList();
-            return ListarFilme;
+            List<Filme> listaFilmes = _context.Filmes.Include(f => f.IdGeneroNavigation).ToList();
+
+            return listaFilmes;
         }
         catch (Exception)
         {

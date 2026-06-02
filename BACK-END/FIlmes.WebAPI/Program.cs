@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.ComponentModel;
 using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,8 +84,10 @@ builder.Services.AddSwaggerGen(options =>
 
     options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
     {
+
         [new OpenApiSecuritySchemeReference("Bearer", document)] = Array.Empty<string>().ToList()
     });
+
 });
 
 
@@ -99,8 +103,13 @@ builder.Services.AddCors(options =>
 
 //Adiciona o serviço de controllers
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
 
+    {
+        options.JsonSerializerOptions.ReferenceHandler =
+            ReferenceHandler.IgnoreCycles;
+    });
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
@@ -118,6 +127,8 @@ app.UseStaticFiles();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseCors("CorsPolicy");
 
 //ADICIONA O MAPEAMENTO DE CONTROLE
 app.MapControllers();

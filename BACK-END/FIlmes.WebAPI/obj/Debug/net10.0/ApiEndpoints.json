@@ -29,7 +29,7 @@
       },
       {
         "Name": "IdGenero",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Guid",
         "IsRequired": false
       }
     ],
@@ -92,7 +92,7 @@
       },
       {
         "Name": "IdGenero",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Guid",
         "IsRequired": false
       }
     ],
@@ -133,8 +133,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "novoGenero",
-        "Type": "FIlmes.WebAPI.Models.Genero",
+        "Name": "generoDto",
+        "Type": "FIlmes.WebAPI.DTO.GeneroDTO",
         "IsRequired": true
       }
     ],
@@ -176,7 +176,7 @@
     "ContainingType": "FIlmes.WebAPI.Controllers.GeneroController",
     "Method": "Put",
     "RelativePath": "api/Genero/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -186,8 +186,8 @@
         "IsRequired": true
       },
       {
-        "Name": "generoAtualizado",
-        "Type": "FIlmes.WebAPI.Models.Genero",
+        "Name": "novoGenero",
+        "Type": "FIlmes.WebAPI.DTO.GeneroDTO",
         "IsRequired": true
       }
     ],

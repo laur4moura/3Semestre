@@ -1,4 +1,5 @@
-﻿using FIlmes.WebAPI.Models;
+﻿using FIlmes.WebAPI.DTO;
+using FIlmes.WebAPI.Models;
 using FILmes.WebAPI.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -192,7 +193,7 @@ public class FilmeController : ControllerBase
 
         //deleta 
         if
-            (String.IsNullOrEmpty(filmeBuscado.Imagem))
+            (!String.IsNullOrEmpty(filmeBuscado.Imagem))
         {
             var caminho = Path.Combine(caminhoPasta, filmeBuscado.Imagem);
             if (System.IO.File.Exists(caminho))

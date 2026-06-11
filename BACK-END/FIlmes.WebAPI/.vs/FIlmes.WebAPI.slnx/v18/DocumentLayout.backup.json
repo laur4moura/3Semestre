@@ -93,20 +93,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FilmeController.cs",
-              "DocumentMoniker": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Controllers\\FilmeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FilmeController.cs",
-              "ToolTip": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Controllers\\FilmeController.cs",
-              "RelativeToolTip": "Controllers\\FilmeController.cs",
-              "ViewState": "AgIAAL8AAAAAAAAAAAAWwMUAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-03T12:09:54.932Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -118,6 +106,31 @@
               "ViewState": "AgIAAHAAAAAAAAAAAAAiwHkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T13:49:25.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAmwH0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-26T14:48:14.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FilmeController.cs",
+              "DocumentMoniker": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Controllers\\FilmeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FilmeController.cs",
+              "ToolTip": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Controllers\\FilmeController.cs",
+              "RelativeToolTip": "Controllers\\FilmeController.cs",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAWwMUAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T12:09:54.932Z"
             },
             {
               "$type": "Document",
@@ -142,19 +155,6 @@
               "ViewState": "AgIAAEAAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T14:07:12.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\54000450816\\Desktop\\3Semestre\\BACK-END\\FIlmes.WebAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAmwH0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T14:48:14.264Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
